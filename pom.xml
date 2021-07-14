@@ -17,13 +17,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <parent>
-    <groupId>org.mybatis</groupId>
-    <artifactId>mybatis-parent</artifactId>
-    <version>32-SNAPSHOT</version>
-  </parent>
-
+  <groupId>org.mybatis</groupId>
   <artifactId>mybatis</artifactId>
   <version>3.3.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -257,59 +251,59 @@
         </systemProperties>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pdf-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>jarjar-maven-plugin</artifactId>
-        <version>1.9</version>
-        <configuration>
-          <input>{classes}</input>
-          <input>{test-classes}</input>
-          <includes>
-            <include>ognl:ognl</include>
-            <include>org.javassist:javassist</include>
-          </includes>
-          <rules>
-            <rule>
-              <pattern>ognl.**</pattern>
-              <result>org.apache.ibatis.ognl.@1</result>
-            </rule>
-            <rule>
-              <pattern>javassist.**</pattern>
-              <result>org.apache.ibatis.javassist.@1</result>
-            </rule>
-            <keep>
-              <pattern>org.apache.ibatis.**</pattern>
-            </keep>
-          </rules>
-          <overwrite>true</overwrite>
-        </configuration>
-        <executions>
-          <execution>
-            <id>jarjar-classes</id>
-            <phase>process-test-classes</phase>
-            <goals>
-              <goal>jarjar</goal>
-            </goals>
-            <configuration>
-              <input>{classes}</input>
-            </configuration>
-          </execution>
-          <execution>
-            <id>jarjar-test-classes</id>
-            <phase>process-test-classes</phase>
-            <goals>
-              <goal>jarjar</goal>
-            </goals>
-            <configuration>
-              <input>{test-classes}</input>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-pdf-plugin</artifactId>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.sonatype.plugins</groupId>-->
+<!--        <artifactId>jarjar-maven-plugin</artifactId>-->
+<!--        <version>1.9</version>-->
+<!--        <configuration>-->
+<!--          <input>{classes}</input>-->
+<!--          <input>{test-classes}</input>-->
+<!--          <includes>-->
+<!--            <include>ognl:ognl</include>-->
+<!--            <include>org.javassist:javassist</include>-->
+<!--          </includes>-->
+<!--          <rules>-->
+<!--            <rule>-->
+<!--              <pattern>ognl.**</pattern>-->
+<!--              <result>org.apache.ibatis.ognl.@1</result>-->
+<!--            </rule>-->
+<!--            <rule>-->
+<!--              <pattern>javassist.**</pattern>-->
+<!--              <result>org.apache.ibatis.javassist.@1</result>-->
+<!--            </rule>-->
+<!--            <keep>-->
+<!--              <pattern>org.apache.ibatis.**</pattern>-->
+<!--            </keep>-->
+<!--          </rules>-->
+<!--          <overwrite>true</overwrite>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>jarjar-classes</id>-->
+<!--            <phase>process-test-classes</phase>-->
+<!--            <goals>-->
+<!--              <goal>jarjar</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <input>{classes}</input>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--          <execution>-->
+<!--            <id>jarjar-test-classes</id>-->
+<!--            <phase>process-test-classes</phase>-->
+<!--            <goals>-->
+<!--              <goal>jarjar</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <input>{test-classes}</input>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
